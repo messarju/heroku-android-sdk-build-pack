@@ -18,3 +18,5 @@ fi
 if [ -d "$MVN_LOCAL_REPO" ]; then
 	export GRADLE_OPTS=-Dmaven.repo.local="$MVN_LOCAL_REPO"
 fi
+
+yes | sdkmanager --licenses > /dev/null

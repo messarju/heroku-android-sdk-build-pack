@@ -37,20 +37,20 @@ android_sdk_download() {
 	else
 		echo "       Extracting to $ZIP_OPT_DIR"
 	fi
-	unzip -d "$ZIP_OPT_DIR" "$ZIP_CACHE"
+	unzip -q -d "$ZIP_OPT_DIR" "$ZIP_CACHE"
 	# mv -v "$ZIP_OPT_DIR"/*/* "$ZIP_OPT_DIR"
 }
 
 echo "-----> Install Android SDK"
 BUILD_DIR=$1
 CACHE_DIR=$2
-# BUILD_DIR=/tmp/x/b
-# CACHE_DIR=/tmp/x/c
+BUILD_DIR=/tmp/x/b
+CACHE_DIR=/tmp/x/c
 
 android_sdk_download "$BUILD_DIR/.opt" "$CACHE_DIR"
 
 PROFILE_SH=$(dirname $0)/profile.sh
 PROFILE_PATH="$BUILD_DIR/.profile.d/android-sdk.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-cp "$PROFILE_SH" "$PROFILE_PATH"
-# ls -lAR /tmp/x
+echo cp "$PROFILE_SH" "$PROFILE_PATH"
+ls -lAR /tmp/x
