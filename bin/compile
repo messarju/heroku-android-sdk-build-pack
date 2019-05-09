@@ -44,13 +44,20 @@ android_sdk_download() {
 echo "-----> Install Android SDK"
 BUILD_DIR=$1
 CACHE_DIR=$2
-BUILD_DIR=/tmp/x/b
-CACHE_DIR=/tmp/x/c
+# BUILD_DIR=/tmp/x/b
+# CACHE_DIR=/tmp/x/c
 
 android_sdk_download "$BUILD_DIR/.opt" "$CACHE_DIR"
 
 PROFILE_SH=$(dirname $0)/profile.sh
 PROFILE_PATH="$BUILD_DIR/.profile.d/android-sdk.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo cp "$PROFILE_SH" "$PROFILE_PATH"
-ls -lAR /tmp/x
+cp "$PROFILE_SH" "$PROFILE_PATH"
+TARGET="$BUILD_DIR/.opt/android_sdk/tools/proguard/docs"
+[ -d "$TARGET" ] && rm -r "$TARGET"
+TARGET="$BUILD_DIR/.opt/android_sdk/tools/proguard/examples"
+[ -d "$TARGET" ] && rm -r "$TARGET"
+TARGET="$BUILD_DIR/.opt/android_sdk/tools/lib/monitor-x86_64"
+[ -d "$TARGET" ] && rm -r "$TARGET"
+
+# ls -lAR /tmp/x
