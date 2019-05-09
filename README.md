@@ -1,1 +1,0 @@
-# heroku-android-sdk-build-pack
